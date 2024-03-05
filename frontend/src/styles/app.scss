@@ -1,0 +1,26 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+  }
+
+  $color1: #212731;
+  $colorNavbar: #D1D6DA;
+  $colorTypo: #2C384A;
+  $colorDesc: #4B5665;
+  $colorShow: #1B88F4;
+
+  .mainContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+
+
