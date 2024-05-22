@@ -5,13 +5,16 @@ import TopicIcon from '@mui/icons-material/Topic';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CreateIcon from '@mui/icons-material/Create';
 
-const FolderStructure = ({ explorerData, handleInsertNode, handleDeleteNode }) => {
+const FolderStructure = ({ explorerData, handleInsertNode, handleDeleteNode, handleEditNode }) => {
 
   const [expand, setExpand] = useState(false);
   const [showInput, setShowInput] = useState({
     visible: false,
     isFolder: false
   });
+
+  const [value,setValue] = useState('');
+  const [flag,setFlag] = useState(false);
 
   const handleButtons = (e, isFolder) => {
     e.stopPropagation();
@@ -24,14 +27,34 @@ const FolderStructure = ({ explorerData, handleInsertNode, handleDeleteNode }) =
 
   const handleDelete = (e) => {
     e.stopPropagation();
+    handleDeleteNode(explorerData.id);
+    console.log(explorerData);
     setExpand(false);
-    console.log(explorerData.id, " ", showInput.isFolder);
-    handleDeleteNode(explorerData.id,showInput.isFolder);
+    setFlag(true);
+    // console.log(explorerData.id, " ", showInput.isFolder);
+  }
+
+  const handleEdit = (e) => {
+    e.stopPropagation();
+    setValue(explorerData.name);
+    setExpand(true);
+    setShowInput({
+      visible: true,
+      isFolder: true 
+    })
+    setFlag(!flag);
   }
 
   const onAddFolder = (e) => {
     if(e.keyCode === 13 && e.target.value){
-      handleInsertNode(explorerData.id, e.target.value,showInput.isFolder)
+      if(flag){
+        handleEdit(explorerData.id,value);
+        setFlag(!flag);
+      }
+      else{
+        handleInsertNode(explorerData.id, e.target.value,showInput.isFolder);
+      }
+      
       setShowInput({...showInput,visible: false})
     }
   }
@@ -47,7 +70,7 @@ const FolderStructure = ({ explorerData, handleInsertNode, handleDeleteNode }) =
           <span className='folderHeadButtons'>
             <button className="btn" onClick={(e) => handleButtons(e, true)}>Folder +</button>
             <button className="btn" onClick={(e) => handleButtons(e, false)}>File +</button>
-            <button className="btnEdit" onClick={(e) => handleDelete(e, false)}><CreateIcon/></button>
+            <button className="btnEdit" onClick={(e) => handleEdit(e, false)}><CreateIcon/></button>
             <button className="btnDelete" onClick={(e) => handleDelete(e, false)}><DeleteIcon/></button>
           </span>
         </span>
@@ -64,7 +87,9 @@ const FolderStructure = ({ explorerData, handleInsertNode, handleDeleteNode }) =
                   type="text"
                   autoFocus
                   onKeyDown={onAddFolder}
+                  onChange={(e)=> setValue(e.target.value)}
                   className='inputTag'
+                  value={value}
                   onBlur={() => setShowInput({ ...showInput, visible: false })}
                 />
               </div>

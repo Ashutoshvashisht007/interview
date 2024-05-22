@@ -18,34 +18,34 @@ const useTraverseTree = ()=> {
         return {...tree, items: latestNode}
     }
 
-    function editNode(){
+    function editNode(tree,folderId,name){
+        if(tree.id === folderId){
+            tree.name = name;
+            return tree;
+        }
 
+        let latestNode = tree.items.map((ele) => (
+            editNode(ele,name)
+        ));
+
+        return {...tree, items: latestNode}
     }
 
-    function deleteNode(tree,folderId,isFolder){
-        console.log(tree.id, " ", folderId);
-        if(!tree.id && !folderId){
-            return false;
+    function deleteNode(tree, folderId) {
+        if (tree.items) {
+            tree.items = tree.items.filter(item => item.id !== folderId);
+            tree.items.forEach(item => deleteNode(item, folderId));
         }
-        if (tree.id === folderId) {
-            return true;
-        }
-        if(tree.items && tree.items.length > 0){
-            console.log("Insdie If Statement");
-            tree.items = tree.items.filter(item => !deleteNode(item, folderId,item,isFolder));
-        }
-
-        return false;
-    }
-
-    function deleteTheFuckingNode(tree,folderId,isFolder){
-        console.log(tree);
-        deleteNode(tree,folderId,isFolder);
-        console.log(tree);
         return tree;
     }
 
-    return {insertNode, editNode, deleteTheFuckingNode}
+    function deleteTheFuckingNode(tree, folderId) {
+        const newTree = { ...tree };
+        deleteNode(newTree, folderId);
+        return newTree;
+    }
+
+    return {insertNode, deleteTheFuckingNode, editNode}
 
 }
 
