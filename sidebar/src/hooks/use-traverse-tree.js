@@ -24,10 +24,7 @@ const useTraverseTree = ()=> {
             return tree;
         }
 
-        let latestNode = tree.items.map((ele) => (
-            editNode(ele,name)
-        ));
-
+        const latestNode = tree.items.map((ele) => editNode(ele,folderId,name));
         return {...tree, items: latestNode}
     }
 
