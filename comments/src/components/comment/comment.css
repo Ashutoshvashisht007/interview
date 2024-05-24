@@ -1,0 +1,106 @@
+.comment{
+    padding: 20px;
+    min-height: 100vh;
+    /* width: 100vw; */
+    background: linear-gradient(90deg, rgba(216,218,219,1) 100%, rgba(183,59,190,1) 100%);
+
+}
+
+.commentContainer{
+    width: calc(100vw - 40px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.commentContainerSpan{
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.commentContainerDiv{
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-start ;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.commentContainerContent{
+    font-weight: 500;
+    font-size: 20px;
+    color: rgb(29, 16, 16);    
+}
+
+.commentContainerShow{
+    font-size: 14px;
+    font-style: italic;
+    cursor: pointer;
+    font-weight: 400;
+    margin-left: 5px;
+}
+
+.commentContainerInput{
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    width: 80vw;
+    background: linear-gradient(90deg, rgba(72,75,78,1) 100%, rgba(183,59,190,1) 100%);
+    color: white;
+}
+
+.commentContainerButtons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.commentReply{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(90deg, rgba(216,218,219,1) 100%, rgba(183,59,190,1) 100%);
+    color: #3ea6ff;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.commentReply:hover{
+    background: #b5c5d3;
+}
+
+.commentDelete{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(90deg, rgba(216,218,219,1) 100%, rgba(183,59,190,1) 100%);
+    color: red;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.commentDelete:hover{
+    background: rgb(219, 159, 159);
+}
+
+.commentEdit{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(90deg, rgba(216,218,219,1) 100%, rgba(183,59,190,1) 100%);
+    color: rgb(39, 31, 31);
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.commentEdit:hover{
+    background: gray;
+}
