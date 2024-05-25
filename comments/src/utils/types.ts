@@ -12,4 +12,5 @@ export interface Reply {
 
   export interface CommentProps {
     comments: CommentData;
+    handleDeleteComment:(idx: string) => void;
   }

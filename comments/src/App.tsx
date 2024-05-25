@@ -2,10 +2,19 @@ import Comment from "./components/comment/Comment"
 import "./App.css"
 import { useEffect, useState } from "react";
 import { CommentData } from "./utils/types";
+import customHooks from "./hooks/customHooks";
 
 function App() {
 
+  const {deleteComment} = customHooks();
+
   const [comments, setComments] = useState<CommentData[]>([]);
+
+  const handleDeleteComment = (idx:string) => {
+    const finalData = deleteComment(comments,idx);
+    console.log(finalData);
+    setComments(finalData);
+  }
 
   useEffect(() => {
     try {
@@ -29,7 +38,7 @@ function App() {
     <div>
       {
         comments.map((ele, idx) => (
-          <Comment key={idx} comments={ele} />
+          <Comment key={idx} comments={ele} handleDeleteComment={handleDeleteComment} />
         ))
       }
 
