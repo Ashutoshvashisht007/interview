@@ -1,39 +1,45 @@
 [
   {
-    "id":"1",
+    "id": "1",
     "comment": "This is the first comment.",
-    "replies": [{
-      "id":"5",
-      "comment": "This is a reply to the first comment.",
-      "replies": [
-        "Another reply to the first comment."
-      ]
-    }]
+    "replies": [
+      {
+        "id": "5",
+        "comment": "This is a reply to the first comment.",
+        "replies": [
+          {
+            "id": "10",
+            "comment": "Another reply to the first comment.",
+            "replies": []
+          }
+        ]
+      }
+    ]
   },
   {
-    "id":"2",
+    "id": "2",
     "comment": "This is the second comment.",
-    "replies": [{
-      "id":"6",
-      "comment": "This is a reply to the second comment.",
-      "replies": [
-        "Another reply to the second comment."
-      ]
-    }]
+    "replies": [
+      {
+        "id": "6",
+        "comment": "This is a reply to the second comment.",
+        "replies": []
+      }
+    ]
   },
   {
-    "id":"3",
+    "id": "3",
     "comment": "This is the third comment.",
-    "replies": [{
-      "id":"7",
-      "comment": "This is a reply to the third comment.",
-      "replies": [
-        "Another reply to the third comment."
-      ]
-    }]
+    "replies": [
+      {
+        "id": "7",
+        "comment": "This is a reply to the third comment.",
+        "replies": []
+      }
+    ]
   },
   {
-    "id":"4",
+    "id": "4",
     "comment": "This is the fourth comment.",
     "replies": []
   }

@@ -27,7 +27,12 @@ function App() {
 
   return (
     <div>
-      <Comment comments={comments}/>
+      {
+        comments.map((ele, idx) => (
+          <Comment key={idx} comments={ele} />
+        ))
+      }
+
     </div>
   )
 }

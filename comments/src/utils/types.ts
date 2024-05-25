@@ -1,7 +1,7 @@
 export interface Reply {
     id: string;
     comment: string;
-    replies: string[];
+    replies: Reply[];
   }
   
   export interface CommentData {
@@ -11,5 +11,5 @@ export interface Reply {
   }
 
   export interface CommentProps {
-    comments: CommentData[];
+    comments: CommentData;
   }
